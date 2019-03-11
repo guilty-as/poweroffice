@@ -1,0 +1,51 @@
+{
+    "name": "guilty/poweroffice",
+    "description": "PowerOffice PHP API Client",
+    "keywords": [
+        "guilty",
+        "poweroffice",
+        "api",
+        "client"
+    ],
+    "homepage": "https://github.com/guilty-as/poweroffice",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Helge Sverre",
+            "email": "helgesverre@guilty.no",
+            "homepage": "https://guilty.no",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "guzzlehttp/guzzle": "^6.3",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Guilty\\Poweroffice\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Guilty\\Poweroffice\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Guilty\\Poweroffice\\PowerofficeServiceProvider"
+            ],
+            "aliases": {
+                "Poweroffice": "Guilty\\Poweroffice\\PowerofficeFacade"
+            }
+        }
+    }
+}
