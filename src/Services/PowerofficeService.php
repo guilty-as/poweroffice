@@ -495,6 +495,25 @@ class PowerofficeService
     }
 
 
+    // Reporting Account Transactions
+    //--------------------------------------------------------------------------------------------------
+    public function getAccountTransactions(\DateTime $fromDate, \DateTime $toDate, $params = [])
+    {
+        $params["query"]["fromDate"] = $fromDate->format("Y-m-d H:i:s");
+        $params["query"]["toDate"] = $toDate->format("Y-m-d H:i:s");
+
+        return $this->performRequest("get", "/Reporting/AccountTransactions", $params);
+    }
+
+    public function getAccountTransactionsForAccountCode($accountCode, \DateTime $fromDate, \DateTime $toDate, $params = [])
+    {
+        $params["query"]["fromDate"] = $fromDate->format("Y-m-d H:i:s");
+        $params["query"]["toDate"] = $toDate->format("Y-m-d H:i:s");
+
+        return $this->performRequest("get", "/Reporting/AccountTransactions/{$accountCode}", $params);
+    }
+
+
     // Reporting Usage
     //--------------------------------------------------------------------------------------------------
     public function getReportingUsage(\DateTime $fromDate, \DateTime $toDate, $params = [])

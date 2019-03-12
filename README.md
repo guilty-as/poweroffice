@@ -190,11 +190,11 @@ The following services are implemented in the API client wrapper:
 - [x] ProjectActivity
 - [x] ProjectTeamMember
 - [x] RecurringInvoice
-- [ ] Reporting/AccountTransactions
+- [x] Reporting/AccountTransactions
 - [ ] Reporting/CustomerLedger
 - [ ] Reporting/InvoiceJournal
 - [ ] Reporting/SupplierLedger
-- [ ] Reporting/TrialBalance
+- [x] Reporting/TrialBalance
 - [x] Reporting/Usage
 - [x] SubledgerNumberSeries
 - [ ] Supplier
