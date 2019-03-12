@@ -196,7 +196,7 @@ The following services are implemented in the API client wrapper:
 - [ ] Reporting/SupplierLedger
 - [ ] Reporting/TrialBalance
 - [ ] Reporting/Usage
-- [ ] SubledgerNumberSeries
+- [x] SubledgerNumberSeries
 - [ ] Supplier
 - [ ] TimeTracking/Activity
 - [ ] TimeTracking/HourType

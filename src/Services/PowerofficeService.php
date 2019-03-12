@@ -289,6 +289,15 @@ class PowerofficeService
         return $this->performRequest("delete", "/Bank/BankTransfer/{$id}");
     }
 
+    public function getSubledgerNumberSeries($params = [])
+    {
+        return $this->performRequest("delete", "/SubledgerNumberSeries", $params);
+    }
+
+    public function getSubledgerNumberSerie($id)
+    {
+        return $this->performRequest("delete", "/SubledgerNumberSeries/{$id}");
+    }
 
     public function getInvoiceDeliveryTypes()
     {
