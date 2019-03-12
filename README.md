@@ -90,9 +90,11 @@ session implementations are provided:
 
 ### Implementing your own session class
 
-Creeate a new class that ```implements``` the ```SessionInterface``` interface and add the required methods, 
-the actual implementation is up to you, you can put the data in a database, a file, in redis, or whatever you need.
+Create a new class that ```implements``` the ```SessionInterface``` interface and add the required methods, the actual implementation is up to you, you can put the data in a database, a file, in redis, or whatever you need.
 
+**OR...**
+ 
+extend the ```AbstractSession``` which implements some of the methods for you.
 
 Here is the interface you need to implement.
 
@@ -118,6 +120,7 @@ interface SessionInterface
 }
 ```
 
+Here is an example extending the AbstractSession.
 ```php
 <?php
 
