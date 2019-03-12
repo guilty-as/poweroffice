@@ -371,6 +371,19 @@ class PowerofficeService
     }
 
 
+    // Client
+    //--------------------------------------------------------------------------------------------------
+    public function getClient($params = [])
+    {
+        return $this->performRequest("get", "/BrandingTheme", $params);
+    }
+
+    public function updateClient($params = [])
+    {
+        return $this->performRequest("get", "/BrandingTheme", $params);
+    }
+
+
     // Vat Code
     //--------------------------------------------------------------------------------------------------
     public function getVatCodes($params = [])
