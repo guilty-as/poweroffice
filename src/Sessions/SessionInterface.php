@@ -6,6 +6,12 @@ namespace Guilty\Poweroffice\Interfaces;
 
 interface SessionInterface
 {
+    const KEY_PREFIX = "POWEROFFICE_SESSION_";
+    const KEY_ACCESS_TOKEN = "ACCESS_TOKEN";
+    const KEY_REFRESH_TOKEN = "REFRESH_TOKEN";
+    const KEY_EXPIRES_AT = "EXPIRES_AT";
+    const EXPIRES_AT_DATE_FORMAT = "Y-m-d H:i:s";
+
     public function setAccessToken($accessToken);
 
     public function getAccessToken();
@@ -20,7 +26,6 @@ interface SessionInterface
 
     public function setExpireDate(\DateTime $expireDate);
 
-    /** @return \DateTimeImmutable */
     public function getExpireDate();
 
     public function hasExpired();

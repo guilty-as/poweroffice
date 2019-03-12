@@ -269,6 +269,7 @@ class PowerofficeService
         return $this->performRequest("delete", "/GeneralLedgerAccount/{$id}");
     }
 
+
     public function getInvoiceDeliveryTypes()
     {
         return [

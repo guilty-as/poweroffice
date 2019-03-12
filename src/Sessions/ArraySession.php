@@ -3,15 +3,7 @@
 namespace Guilty\Poweroffice\Sessions;
 
 
-use Guilty\Poweroffice\Interfaces\SessionInterface;
-
-/**
- * Implements the session interface using an in-memory array, use this for tests and such.
- *
- * Class ArraySession
- * @package Guilty\Poweroffice\Sessions
- */
-class ArraySession implements SessionInterface
+class ArraySession extends AbstractSession
 {
     /**
      * @var array
@@ -25,27 +17,22 @@ class ArraySession implements SessionInterface
 
     public function setAccessToken($accessToken)
     {
-        $this->data["access_token"] = $accessToken;
+        $this->data[$this->keyName(self::KEY_ACCESS_TOKEN)] = $accessToken;
     }
 
     public function getAccessToken()
     {
-        return $this->data["access_token"] ?? null;
+        return $this->data[$this->keyName(self::KEY_ACCESS_TOKEN)] ?? null;
     }
 
     public function setRefreshToken($refreshToken)
     {
-        $this->data["refresh_token"] = $refreshToken;
+        $this->data[$this->keyName(self::KEY_REFRESH_TOKEN)] = $refreshToken;
     }
 
     public function getRefreshToken()
     {
-        return $this->data["refresh_token"] ?? null;
-    }
-
-    public function canRefresh()
-    {
-        return !!$this->getRefreshToken();
+        return $this->data[$this->keyName(self::KEY_REFRESH_TOKEN)] ?? null;
     }
 
     public function disconnect()
@@ -55,39 +42,16 @@ class ArraySession implements SessionInterface
 
     public function setExpireDate(\DateTime $expireDate)
     {
-        $this->data["refresh_token"] = $expireDate;
+        $this->data[$this->keyName(self::KEY_EXPIRES_AT)] = $expireDate->format(self::EXPIRES_AT_DATE_FORMAT);
     }
 
-    /** @return \DateTimeImmutable */
     public function getExpireDate()
     {
         try {
-            return \DateTimeImmutable::createFromFormat("Y-m-d H:i:s", $this->data["expire_date"]);
+            return \DateTimeImmutable::createFromFormat(self::EXPIRES_AT_DATE_FORMAT, $this->data[$this->keyName(self::KEY_EXPIRES_AT)]);
         } catch (\Exception $exception) {
             return null;
         }
     }
 
-    public function hasExpired()
-    {
-        $expireDate = $this->getExpireDate();
-        $now = new \DateTimeImmutable("now");
-
-        return $expireDate < $now;
-    }
-
-    public function isValid()
-    {
-        return $this->getAccessToken() && $this->hasExpired() === false;
-    }
-
-    public function setFromResponse($response)
-    {
-        $seconds = $response["expires_in"];
-        $date = (new \DateTime())->add(new \DateInterval("P{$seconds}S"));
-
-        $this->setExpireDate($date->format("Y-m-d H:i:s"));
-        $this->setAccessToken($response["access_token"]);
-        $this->setRefreshToken($response["refresh_token"]);
-    }
 }

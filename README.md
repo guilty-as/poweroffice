@@ -85,6 +85,7 @@ session implementations are provided:
 
 - ArraySession - Used for testing
 - ValueStoreSession - Can be used in production, saves all data in a json file defined in the "poweroffice.store_path" config option, uses [Spatie's ValueStore package](https://github.com/spatie/valuestore) 
+- RedisSession - Can be used in production, saves all data in a redis field, prefixed with ```POWEROFFICE_SESSION```, expects a [Predis Client](https://packagist.org/packages/predis/predis). 
 
 
 ### Implementing your own session class
@@ -151,8 +152,8 @@ The following services are implemented in the API client wrapper:
 
 - [x] TestSession (testing)
 - [x] ValueStoreSession (laravel)
+- [x] RedisSession
 - [ ] EloquentSession (laravel)
-- [ ] RedisSession
 - [ ] PdoSession
 
 ## Functionality

@@ -2,26 +2,10 @@
 
 namespace Guilty\Poweroffice\Sessions;
 
-
-use Carbon\Carbon;
-use Guilty\Poweroffice\Interfaces\SessionInterface;
 use Spatie\Valuestore\Valuestore;
 
-/**
- * Implements the sessioninterface using the ValueStore package from Spatie,
- * it is essentially just a JSON file with a nice interface around it.
- *
- * Class ValueStoreSession
- * @package Guilty\Poweroffice\Sessions
- */
-class ValueStoreSession implements SessionInterface
+class ValueStoreSession extends AbstractSession
 {
-    private $storeKeyPrefix = "POWEROFFICE_SESSION_";
-    private $accessTokenStoreKey = "ACCESS_TOKEN";
-    private $refreshTokenStoreKey = "REFRESH_TOKEN";
-    private $expiresAtStoreKey = "EXPIRES_AT";
-    private $dateSerializationFormat = "Y-m-d H:i:s";
-
     /**
      * @var \Spatie\Valuestore\Valuestore
      */
@@ -32,72 +16,39 @@ class ValueStoreSession implements SessionInterface
         $this->store = $store;
     }
 
-    private function keyName($key)
-    {
-        return $this->storeKeyPrefix . $key;
-    }
-
     public function setAccessToken($accessToken)
     {
-        $this->store->put($this->keyName($this->accessTokenStoreKey), $accessToken);
+        $this->store->put($this->keyName(self::KEY_ACCESS_TOKEN), $accessToken);
     }
 
     public function getAccessToken()
     {
-        return $this->store->get($this->keyName($this->accessTokenStoreKey));
+        return $this->store->get($this->keyName(self::KEY_ACCESS_TOKEN));
     }
 
     public function setRefreshToken($refreshToken)
     {
-        $this->store->put($this->keyName($this->refreshTokenStoreKey), $refreshToken);
+        $this->store->put($this->keyName(self::KEY_REFRESH_TOKEN), $refreshToken);
     }
 
     public function getRefreshToken()
     {
-        return $this->store->get($this->keyName($this->refreshTokenStoreKey));
+        return $this->store->get($this->keyName(self::KEY_REFRESH_TOKEN));
     }
 
     public function disconnect()
     {
-        $this->store->flushStartingWith($this->storeKeyPrefix);
+        $this->store->flushStartingWith(self::KEY_PREFIX);
     }
 
     public function setExpireDate(\DateTime $expireDate)
     {
-        $this->store->put($this->keyName($this->expiresAtStoreKey), $expireDate->format($this->dateSerializationFormat));
+        $this->store->put($this->keyName(self::KEY_EXPIRES_AT), $expireDate->format(self::EXPIRES_AT_DATE_FORMAT));
     }
 
     public function getExpireDate()
     {
-        $date = $this->store->get($this->keyName($this->expiresAtStoreKey));
-        return \DateTimeImmutable::createFromFormat($this->dateSerializationFormat, $date);
-    }
-
-    public function hasExpired()
-    {
-        $expireDate = $this->getExpireDate();
-        $now = new \DateTimeImmutable();
-
-        return $expireDate < $now;
-    }
-
-    public function isValid()
-    {
-        return $this->getAccessToken() && $this->hasExpired() === false;
-    }
-
-    public function setFromResponse($response)
-    {
-        $seconds = $response["expires_in"];
-        $date = (new \DateTime())->add(new \DateInterval("P{$seconds}S"));
-
-        $this->setExpireDate($date);
-        $this->setAccessToken($response["access_token"]);
-        $this->setRefreshToken($response["refresh_token"]);
-    }
-
-    public function canRefresh()
-    {
-        return !!$this->getRefreshToken();
+        $date = $this->store->get($this->keyName(self::KEY_EXPIRES_AT));
+        return \DateTimeImmutable::createFromFormat(self::EXPIRES_AT_DATE_FORMAT, $date);
     }
 }
