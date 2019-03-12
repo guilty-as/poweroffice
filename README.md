@@ -4,10 +4,10 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/guilty/poweroffice.svg?style=flat-square)](https://packagist.org/packages/guilty/poweroffice)
 
 
-Poweroffice API client, used for interacting with the [PowerOffice](https://poweroffice.no/) API: https://api.poweroffice.net/Web/docs/index.html
+Poweroffice API client, used for talking to the [PowerOffice](https://poweroffice.no/) API: https://api.poweroffice.net/Web/docs/index.html
 
 
-## Installation
+# Installation
 
 You can install the package via composer:
 
@@ -15,13 +15,36 @@ You can install the package via composer:
 composer require guilty/poweroffice
 ```
 
-## Usage 
+# Usage 
 
 ## Standalone
 
+You can use the package as a standalone PHP Package, here is a simple example:
+
+```php
+<?php
 
 
-### Laravel
+use Guilty\Poweroffice\Services\PowerofficeService;
+use Guilty\Poweroffice\Sessions\ValueStoreSession;
+use GuzzleHttp\Client;
+use Spatie\Valuestore\Valuestore;
+
+
+$client = new Client();
+$store = Valuestore::make(config("poweroffice.store_path"));
+$session = new ValueStoreSession($store);
+$service = new PowerOfficeService(
+    $client,
+    $session,
+    "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa", // Application Key
+    "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb", // Client Key 
+    true // Test Mode
+);
+```
+
+
+## Laravel
 
 You can publish the config file like so
 ```
@@ -44,25 +67,25 @@ return [
 
 To get started, add the following environment variable to your .env file:
 
-```
+```dotenv
 POWEROFFICE_APPLICATION_KEY=aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
 POWEROFFICE_CLIENT_KEY=bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
 POWEROFFICE_TEST_MODE=true
 ```
 
-### Session Implementations
+## Session Implementations
 
 The PowerOffice API uses OAUTH2 client_credentials for authentication, to keep 
 track of the "session" (access token, refresh token and expire date) we use a 
 Session class that stores these values for us, out of the box the following 
 session implementations are provided:
 
-#### Provided Session Implementations
+### Provided Session Implementations
 
 - ArraySession - Used for testing
 - ValueStoreSession - Can be used in production, saves all data in a json file defined in the "poweroffice.store_path"config option, uses [Spatie's ValueStore package](https://github.com/spatie/valuestore) 
 
-#### Implementing your own session class
+### Implementing your own session class
 
 Just implement the SessionInterface interface and add the required methods, the 
 implementation is up to you, you can put the data in a database, a file, in redis, 
@@ -72,6 +95,8 @@ or whatever you need to do.
 Here is the interface you need to implement.
 
 ```php
+<?php
+
 namespace Guilty\Poweroffice\Interfaces;
 
 interface SessionInterface
@@ -94,6 +119,11 @@ interface SessionInterface
 ```php
 // TODO: Make usage docs
 ```
+
+# Note about oData filtering
+
+It seems that PowerOffice's API is case sensitive when it comes to the field names in oData filtering. 
+
 
 # TODO
 
@@ -140,7 +170,8 @@ The following services are implemented in the API client wrapper:
 [] TimeTracking/TimeTrackingEntry
 [] VatCode
 
-## License
+
+# License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
