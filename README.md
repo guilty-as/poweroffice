@@ -75,7 +75,7 @@ POWEROFFICE_TEST_MODE=true
 
 ## Session Implementations
 
-The PowerOffice API uses OAUTH2 client_credentials for authentication, to keep 
+The PowerOffice API uses the ["client_credentials" grant type](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) for authentication, to keep 
 track of the "session" (access token, refresh token and expire date) we use a 
 Session class that stores these values for us, out of the box the following 
 session implementations are provided:
