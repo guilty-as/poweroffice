@@ -120,16 +120,16 @@ class PowerofficeService
     }
 
     /**
-     * @param array $formParams
+     * @param array $params
      * @throws \Guilty\Poweroffice\Exceptions\InvalidClientException
      */
-    public function performAuthenticationRequest($formParams)
+    public function performAuthenticationRequest($params)
     {
         $request = $this->client->post($this->getAccessTokenUrl(), [
             'http_errors' => false,
             'Accept' => 'application/json',
             "auth" => $this->getAuthenticationCredentials(),
-            "form_params" => $formParams,
+            "form_params" => $params,
         ]);
 
         $response = json_decode($request->getBody(), true);
