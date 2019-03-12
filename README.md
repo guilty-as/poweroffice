@@ -4,7 +4,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/guilty/poweroffice.svg?style=flat-square)](https://packagist.org/packages/guilty/poweroffice)
 
 
-poweroffice API client, used for interacting with the [PowerOffice](https://poweroffice.no/) API: https://api.poweroffice.net/Web/docs/index.html
+Poweroffice API client, used for interacting with the [PowerOffice](https://poweroffice.no/) API: https://api.poweroffice.net/Web/docs/index.html
 
 
 ## Installation
@@ -56,4 +56,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 Brought to you by [Guilty AS](https://guilty.no)
 
-The poweroffice logo and Trademark is the property of [poweroffice International AB](https://www.poweroffice.com/)
+The PowerFffice logo and Trademark is the property of [Poweroffice AS](https://poweroffice.no/)
