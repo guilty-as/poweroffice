@@ -358,6 +358,19 @@ class PowerofficeService
     }
 
 
+    // Branding Theme
+    //--------------------------------------------------------------------------------------------------
+    public function getBrandingThemes($params = [])
+    {
+        return $this->performRequest("get", "/BrandingTheme", $params);
+    }
+
+    public function getBrandingTheme($id)
+    {
+        return $this->performRequest("get", "/BrandingTheme/{$id}");
+    }
+
+
     // Vat Code
     //--------------------------------------------------------------------------------------------------
     public function getVatCodes($params = [])

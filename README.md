@@ -165,7 +165,7 @@ The following services are implemented in the API client wrapper:
 - [x] Bank/BankTransfer
 - [x] Bank/ClientBankAccount
 - [ ] Blob
-- [ ] BrandingTheme
+- [x] BrandingTheme
 - [ ] Client
 - [ ] ClientAuth
 - [x] ContactGroup
