@@ -47,6 +47,56 @@ POWEROFFICE_CLIENT_KEY=bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
 POWEROFFICE_TEST_MODE=true
 ```
 
+## Usage 
+
+```php
+// TODO: Make usage docs
+```
+
+# TODO
+
+The following services are implemented in the API client wrapper: 
+
+[] Bank/BankTransfer
+[] Bank/ClientBankAccount
+[] Blob
+[] BrandingTheme
+[] Client
+[] ClientAuth
+[] ContactGroup
+[] Customer
+[] DebtCollection
+[] Department
+[] Employee
+[] ExternallyDeliverableInvoice
+[] GeneralLedgerAccount
+[] Import
+[] InvoiceAttachment
+[] JournalEntryVoucher
+[] Location
+[] OutgoingInvoice
+[] PartyBankAccount
+[] PartyContactPerson
+[] Payroll/PayItem
+[] Payroll/SalaryLine
+[] Product
+[] ProductGroup
+[] Project
+[] ProjectActivity
+[] ProjectTeamMember
+[] RecurringInvoice
+[] Reporting/AccountTransactions
+[] Reporting/CustomerLedger
+[] Reporting/InvoiceJournal
+[] Reporting/SupplierLedger
+[] Reporting/TrialBalance
+[] Reporting/Usage
+[] SubledgerNumberSeries
+[] Supplier
+[] TimeTracking/Activity
+[] TimeTracking/HourType
+[] TimeTracking/TimeTrackingEntry
+[] VatCode
 
 ## License
 
