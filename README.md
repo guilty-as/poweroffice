@@ -182,8 +182,8 @@ The following services are implemented in the API client wrapper:
 - [x] OutgoingInvoice
 - [x] PartyBankAccount
 - [x] PartyContactPerson
-- [ ] Payroll/PayItem
-- [ ] Payroll/SalaryLine
+- [x] Payroll/PayItem
+- [x] Payroll/SalaryLine
 - [x] Product
 - [x] ProductGroup
 - [ ] Project

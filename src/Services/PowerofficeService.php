@@ -464,6 +464,37 @@ class PowerofficeService
     }
 
 
+    // Payroll Pay Item
+    //--------------------------------------------------------------------------------------------------
+    public function getPayrollPayItem($params = [])
+    {
+        return $this->performRequest("get", "/Payroll/PayItem", $params);
+    }
+
+
+    // Payroll Salary Line
+    //--------------------------------------------------------------------------------------------------
+    public function getPayrollSalaryLines($params = [])
+    {
+        return $this->performRequest("get", "/Payroll/SalaryLine", $params);
+    }
+
+    public function createPayrollSalaryLine($params = [])
+    {
+        return $this->performRequest("post", "/Payroll/SalaryLine", $params);
+    }
+
+    public function getPayrollSalaryLine($id)
+    {
+        return $this->performRequest("get", "/Payroll/SalaryLine/{$id}");
+    }
+
+    public function deletePayrollSalaryLine($id)
+    {
+        return $this->performRequest("delete", "/Payroll/SalaryLine/{$id}");
+    }
+
+
     // Bank Transfer
     //--------------------------------------------------------------------------------------------------
     public function getBankTransfers($params = [])
