@@ -176,7 +176,7 @@ The following services are implemented in the API client wrapper:
 - [ ] ExternallyDeliverableInvoice
 - [x] GeneralLedgerAccount
 - [ ] Import
-- [ ] InvoiceAttachment
+- [x] InvoiceAttachment
 - [x] JournalEntryVoucher
 - [x] Location
 - [x] OutgoingInvoice

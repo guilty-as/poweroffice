@@ -441,6 +441,29 @@ class PowerofficeService
     }
 
 
+    // General Account Ledger
+    //--------------------------------------------------------------------------------------------------
+    public function getInvoiceAttachments($params = [])
+    {
+        return $this->performRequest("get", "/InvoiceAttachment", $params);
+    }
+
+    public function createInvoiceAttachment($params = [])
+    {
+        return $this->performRequest("post", "/InvoiceAttachment", $params);
+    }
+
+    public function getInvoiceAttachment($id)
+    {
+        return $this->performRequest("get", "/InvoiceAttachment/{$id}");
+    }
+
+    public function deleteInvoiceAttachment($id)
+    {
+        return $this->performRequest("delete", "/InvoiceAttachment/{$id}");
+    }
+
+
     // Bank Transfer
     //--------------------------------------------------------------------------------------------------
     public function getBankTransfers($params = [])
