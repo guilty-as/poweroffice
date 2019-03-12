@@ -89,9 +89,8 @@ session implementations are provided:
 
 ### Implementing your own session class
 
-Just implement the SessionInterface interface and add the required methods, the 
-implementation is up to you, you can put the data in a database, a file, in redis, 
-or whatever you need to do.
+Creeate a new class that ```implements``` the ```SessionInterface``` interface and add the required methods, 
+the actual implementation is up to you, you can put the data in a database, a file, in redis, or whatever you need.
 
 
 Here is the interface you need to implement.
@@ -147,6 +146,20 @@ It seems that PowerOffice's API is case sensitive when it comes to the field nam
 # TODO
 
 The following services are implemented in the API client wrapper: 
+
+## Sessions
+
+- [x] TestSession (testing)
+- [x] ValueStoreSession (laravel)
+- [ ] EloquentSession (laravel)
+- [ ] RedisSession
+- [ ] PdoSession
+
+## Functionality
+
+- [ ] oData filter builder
+
+## Services 
 
 - [ ] Bank/BankTransfer
 - [ ] Bank/ClientBankAccount
