@@ -163,7 +163,7 @@ The following services are implemented in the API client wrapper:
 ## Services 
 
 - [x] Bank/BankTransfer
-- [ ] Bank/ClientBankAccount
+- [x] Bank/ClientBankAccount
 - [ ] Blob
 - [ ] BrandingTheme
 - [ ] Client

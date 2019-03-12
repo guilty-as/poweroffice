@@ -335,6 +335,29 @@ class PowerofficeService
     }
 
 
+    // Client Bank Account
+    //--------------------------------------------------------------------------------------------------
+    public function getClientBankAccounts($params = [])
+    {
+        return $this->performRequest("get", "/ClientBankAccount", $params);
+    }
+
+    public function getClientBankAccount($id)
+    {
+        return $this->performRequest("get", "/ClientBankAccount/$id");
+    }
+
+    public function createClientBankAccount($params)
+    {
+        return $this->performRequest("post", "/ClientBankAccount", $params);
+    }
+
+    public function deleteClientBankAccount($id)
+    {
+        return $this->performRequest("delete", "/ClientBankAccount/$id");
+    }
+
+
     // Vat Code
     //--------------------------------------------------------------------------------------------------
     public function getVatCodes($params = [])
