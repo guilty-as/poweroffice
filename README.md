@@ -56,4 +56,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 Brought to you by [Guilty AS](https://guilty.no)
 
-The PowerFffice logo and Trademark is the property of [Poweroffice AS](https://poweroffice.no/)
+The Poweroffice logo and Trademark is the property of [Poweroffice AS](https://poweroffice.no/)
