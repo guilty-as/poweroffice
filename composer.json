@@ -1,6 +1,7 @@
 {
     "name": "guilty/poweroffice",
     "description": "PowerOffice PHP API Client",
+    "version": "1.0.0-dev",
     "keywords": [
         "guilty",
         "poweroffice",
@@ -42,7 +43,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Guilty\\Poweroffice\\PowerofficeServiceProvider"
+                "Guilty\\Poweroffice\\PowerofficeProvider"
             ],
             "aliases": {
                 "Poweroffice": "Guilty\\Poweroffice\\PowerofficeFacade"

@@ -4,7 +4,7 @@
 namespace Guilty\Poweroffice\Interfaces;
 
 
-interface PowerofficeSessionInterface
+interface SessionInterface
 {
     public function setAccessToken($accessToken);
 

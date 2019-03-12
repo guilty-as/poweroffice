@@ -2,9 +2,12 @@
 
 namespace Guilty\Poweroffice\Services;
 
+
 use Guilty\Poweroffice\Exceptions\TooManyRequestsException;
 use Guilty\Poweroffice\Exceptions\UnauthorizedException;
+use Guilty\Poweroffice\Interfaces\SessionInterface;
 use GuzzleHttp\Client;
+
 
 class PowerofficeService
 {
@@ -14,7 +17,7 @@ class PowerofficeService
     protected $client;
 
     /**
-     * @var \Guilty\Poweroffice\Services\PowerofficeSession
+     * @var \Guilty\Poweroffice\Interfaces\SessionInterface
      */
     protected $session;
 
@@ -28,15 +31,13 @@ class PowerofficeService
     protected $testMode;
 
     /**
-     * PowerofficeService constructor.
-     *
      * @param \GuzzleHttp\Client $client
-     * @param \Guilty\Poweroffice\Services\PowerofficeSession $session
+     * @param \Guilty\Poweroffice\Interfaces\SessionInterface $session
      * @param string $applicationKey The application key
      * @param string $clientKey The client key
-     * @param bool $testMode Should the service hit the test api or the live api, defaults to true (test mode)
+     * @param bool $testMode Should the service hit the test api or the live api, defaults to test mode (true)
      */
-    public function __construct(Client $client, PowerofficeSession $session, $applicationKey, $clientKey, $testMode = true)
+    public function __construct(Client $client, SessionInterface $session, $applicationKey, $clientKey, $testMode = true)
     {
         $this->client = $client;
         $this->session = $session;

@@ -2,9 +2,16 @@
 
 namespace Guilty\Poweroffice\Sessions;
 
-use Guilty\Poweroffice\Interfaces\PowerofficeSessionInterface;
 
-class ArraySession implements PowerofficeSessionInterface
+use Guilty\Poweroffice\Interfaces\SessionInterface;
+
+/**
+ * Implements the session interface using an in-memory array, use this for tests and such.
+ *
+ * Class ArraySession
+ * @package Guilty\Poweroffice\Sessions
+ */
+class ArraySession implements SessionInterface
 {
     /**
      * @var array
@@ -55,7 +62,7 @@ class ArraySession implements PowerofficeSessionInterface
     public function getExpireDate()
     {
         try {
-            return new \DateTimeImmutable($this->data["expire_date"]);
+            return \DateTimeImmutable::createFromFormat("Y-m-d H:i:s", $this->data["expire_date"]);
         } catch (\Exception $exception) {
             return null;
         }
@@ -79,7 +86,7 @@ class ArraySession implements PowerofficeSessionInterface
         $seconds = $response["expires_in"];
         $date = (new \DateTime())->add(new \DateInterval("P{$seconds}S"));
 
-        $this->setExpireDate($date);
+        $this->setExpireDate($date->format("Y-m-d H:i:s"));
         $this->setAccessToken($response["access_token"]);
         $this->setRefreshToken($response["refresh_token"]);
     }

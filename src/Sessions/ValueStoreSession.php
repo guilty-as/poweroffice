@@ -2,11 +2,19 @@
 
 namespace Guilty\Poweroffice\Sessions;
 
+
 use Carbon\Carbon;
-use Guilty\Poweroffice\Interfaces\PowerofficeSessionInterface;
+use Guilty\Poweroffice\Interfaces\SessionInterface;
 use Spatie\Valuestore\Valuestore;
 
-class ValueStoreSession implements PowerofficeSessionInterface
+/**
+ * Implements the sessioninterface using the ValueStore package from Spatie,
+ * it is essentially just a JSON file with a nice interface around it.
+ *
+ * Class ValueStoreSession
+ * @package Guilty\Poweroffice\Sessions
+ */
+class ValueStoreSession implements SessionInterface
 {
     private $storeKeyPrefix = "POWEROFFICE_SESSION_";
     private $accessTokenStoreKey = "ACCESS_TOKEN";
@@ -68,7 +76,7 @@ class ValueStoreSession implements PowerofficeSessionInterface
     public function hasExpired()
     {
         $expireDate = $this->getExpireDate();
-        $now = new \DateTimeImmutable("now");
+        $now = new \DateTimeImmutable();
 
         return $expireDate < $now;
     }
@@ -80,7 +88,10 @@ class ValueStoreSession implements PowerofficeSessionInterface
 
     public function setFromResponse($response)
     {
-        $this->setExpireDate(Carbon::now()->addSeconds($response["expires_in"]));
+        $seconds = $response["expires_in"];
+        $date = (new \DateTime())->add(new \DateInterval("P{$seconds}S"));
+
+        $this->setExpireDate($date);
         $this->setAccessToken($response["access_token"]);
         $this->setRefreshToken($response["refresh_token"]);
     }

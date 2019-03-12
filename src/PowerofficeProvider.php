@@ -2,13 +2,13 @@
 
 namespace Guilty\Poweroffice;
 
-use Guilty\Poweroffice\Interfaces\PowerofficeSessionInterface;
+use Guilty\Poweroffice\Interfaces\SessionInterface;
 use Guilty\Poweroffice\Services\PowerofficeService;
-use Guilty\Poweroffice\Services\PowerofficeSession;
-use Guilty\Poweroffice\Services\ValueStoreSession;
+use Guilty\Poweroffice\Sessions\ValueStoreSession;
 use GuzzleHttp\Client;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Valuestore\Valuestore;
+
 
 class PowerofficeProvider extends ServiceProvider
 {
@@ -29,7 +29,7 @@ class PowerofficeProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'poweroffice');
 
 
-        $this->app->bind(PowerOfficeSessionInterface::class, function () {
+        $this->app->bind(SessionInterface::class, function () {
             $store = Valuestore::make(config("poweroffice.store_path"));
             return new ValueStoreSession($store);
         });
@@ -38,7 +38,7 @@ class PowerofficeProvider extends ServiceProvider
         $this->app->bind(PowerOfficeService::class, function () {
             return new PowerOfficeService(
                 app(Client::class),
-                app(PowerOfficeSessionInterface::class),
+                app(SessionInterface::class),
                 config('services.poweroffice.application_key'),
                 config('services.poweroffice.client_key'),
                 config('services.poweroffice.test_mode', true)
@@ -49,7 +49,7 @@ class PowerofficeProvider extends ServiceProvider
     public function provides()
     {
         return [
-            PowerofficeSessionInterface::class,
+            SessionInterface::class,
             PowerofficeService::class,
         ];
     }
