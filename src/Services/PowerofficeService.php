@@ -335,7 +335,7 @@ class PowerofficeService
         return $this->performRequest("get", "/Bank/BankTransfer/{$id}");
     }
 
-    public function createBankTransfers($params = [])
+    public function createBankTransfer($params = [])
     {
         return $this->performRequest("post", "/Bank/BankTransfer", $params);
     }
@@ -343,6 +343,62 @@ class PowerofficeService
     public function deleteBankTransfers($id)
     {
         return $this->performRequest("delete", "/Bank/BankTransfer/{$id}");
+    }
+
+    // Department
+    //--------------------------------------------------------------------------------------------------
+    public function getDepartments($params = [])
+    {
+        return $this->performRequest("get", "/Department", $params);
+    }
+
+    public function getDepartment($id)
+    {
+        return $this->performRequest("get", "/Department/{$id}");
+    }
+
+    public function createDepartment($params = [])
+    {
+        return $this->performRequest("post", "/Department", $params);
+    }
+
+    public function deleteDepartments($id)
+    {
+        return $this->performRequest("delete", "/Department/{$id}");
+    }
+
+    // Project Activity
+    //--------------------------------------------------------------------------------------------------
+    public function getProjectActivities($params = [])
+    {
+        return $this->performRequest("get", "/ProjectActivity", $params);
+    }
+
+    public function getProjectActivity($id)
+    {
+        return $this->performRequest("get", "/ProjectActivity/{$id}");
+    }
+
+    // Location
+    //--------------------------------------------------------------------------------------------------
+    public function getLocations($params = [])
+    {
+        return $this->performRequest("get", "/Location", $params);
+    }
+
+    public function getLocation($id)
+    {
+        return $this->performRequest("get", "/Location/{$id}");
+    }
+
+    public function createLocation($params = [])
+    {
+        return $this->performRequest("post", "/Location", $params);
+    }
+
+    public function deleteLocations($id)
+    {
+        return $this->performRequest("delete", "/Location/{$id}");
     }
 
     // Subledger Number Serie

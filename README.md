@@ -168,7 +168,7 @@ The following services are implemented in the API client wrapper:
 - [ ] BrandingTheme
 - [ ] Client
 - [ ] ClientAuth
-- [ ] ContactGroup
+- [x] ContactGroup
 - [ ] Customer
 - [ ] DebtCollection
 - [ ] Department
@@ -178,7 +178,7 @@ The following services are implemented in the API client wrapper:
 - [ ] Import
 - [ ] InvoiceAttachment
 - [ ] JournalEntryVoucher
-- [ ] Location
+- [x] Location
 - [x] OutgoingInvoice
 - [ ] PartyBankAccount
 - [ ] PartyContactPerson
@@ -187,7 +187,7 @@ The following services are implemented in the API client wrapper:
 - [x] Product
 - [x] ProductGroup
 - [ ] Project
-- [ ] ProjectActivity
+- [x] ProjectActivity
 - [ ] ProjectTeamMember
 - [ ] RecurringInvoice
 - [ ] Reporting/AccountTransactions
