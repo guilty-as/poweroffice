@@ -527,6 +527,26 @@ class PowerofficeService
     }
 
 
+    // Externally Deliverable Invoice
+    //--------------------------------------------------------------------------------------------------
+    public function getExternallyDeliverableInvoices($params = [])
+    {
+        return $this->performRequest("get", "/ExternallyDeliverableInvoice", $params);
+    }
+
+    // TODO(12 mar 2019) ~ Helge: Make helper for sending this
+    public function markExternallyDeliverableInvoiceAsDelivered($params = [])
+    {
+        return $this->performRequest("post", "/ExternallyDeliverableInvoice/delivered/", $params);
+    }
+
+    public function getExternallyDeliverableInvoicesEhf($invoiceId)
+    {
+        return $this->performRequest("get", "/ExternallyDeliverableInvoice/InvoiceEhf/{$invoiceId}");
+    }
+
+
+
     // Reporting Usage
     //--------------------------------------------------------------------------------------------------
     public function getReportingUsage(\DateTime $fromDate, \DateTime $toDate, $params = [])

@@ -173,7 +173,7 @@ The following services are implemented in the API client wrapper:
 - [ ] DebtCollection
 - [ ] Department
 - [ ] Employee
-- [ ] ExternallyDeliverableInvoice
+- [x] ExternallyDeliverableInvoice
 - [x] GeneralLedgerAccount
 - [ ] Import
 - [x] InvoiceAttachment
