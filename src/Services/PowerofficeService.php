@@ -3,6 +3,7 @@
 namespace Guilty\Poweroffice\Services;
 
 
+use Guilty\Poweroffice\Exceptions\InvalidClientException;
 use Guilty\Poweroffice\Exceptions\TooManyRequestsException;
 use Guilty\Poweroffice\Exceptions\UnauthorizedException;
 use Guilty\Poweroffice\Interfaces\SessionInterface;
@@ -97,9 +98,14 @@ class PowerofficeService
         }
     }
 
+    /**
+     * @return void
+     * @throws \Guilty\Poweroffice\Exceptions\InvalidClientException
+     */
     public function refreshAccessCode()
     {
         $request = $this->client->post($this->getAccessTokenUrl(), [
+            'http_errors' => false,
             "auth" => $this->getAuthenticationCredentials(),
             "form_params" => [
                 "grant_type" => "refresh_token",
@@ -109,14 +115,23 @@ class PowerofficeService
 
         $response = json_decode($request->getBody(), true);
 
+        if ($request->getStatusCode() === 400 && $response["error"] == "invalid_client") {
+            throw new InvalidClientException("The client is invalid");
+        }
+
         $this->session->setFromResponse($response);
 
         return $response;
     }
 
+    /**
+     * @return void
+     * @throws \Guilty\Poweroffice\Exceptions\InvalidClientException
+     */
     public function getAccessToken()
     {
         $request = $this->client->post($this->getAccessTokenUrl(), [
+            'http_errors' => false,
             "auth" => $this->getAuthenticationCredentials(),
             "form_params" => [
                 "grant_type" => "client_credentials",
@@ -124,6 +139,10 @@ class PowerofficeService
         ]);
 
         $response = json_decode($request->getBody(), true);
+
+        if ($request->getStatusCode() === 400 && $response["error"] == "invalid_client") {
+            throw new InvalidClientException("The client is invalid");
+        }
 
         $this->session->setFromResponse($response);
 
