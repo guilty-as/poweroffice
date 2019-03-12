@@ -198,9 +198,9 @@ The following services are implemented in the API client wrapper:
 - [ ] Reporting/Usage
 - [x] SubledgerNumberSeries
 - [ ] Supplier
-- [ ] TimeTracking/Activity
-- [ ] TimeTracking/HourType
-- [ ] TimeTracking/TimeTrackingEntry
+- [x] TimeTracking/Activity
+- [x] TimeTracking/HourType
+- [x] TimeTracking/TimeTrackingEntry
 - [x] VatCode
 
 

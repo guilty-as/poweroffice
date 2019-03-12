@@ -174,6 +174,7 @@ class PowerofficeService
         return $response;
     }
 
+
     // Customer
     //--------------------------------------------------------------------------------------------------
     public function createCustomer($params)
@@ -195,6 +196,7 @@ class PowerofficeService
     {
         return $this->performRequest("delete", "/Customer/$id");
     }
+
 
     // Outgoing Invoice
     //--------------------------------------------------------------------------------------------------
@@ -218,6 +220,7 @@ class PowerofficeService
         return $this->performRequest("get", "/OutgoingInvoice/$id");
     }
 
+
     // Product
     //--------------------------------------------------------------------------------------------------
     public function getProducts($params = [])
@@ -239,6 +242,7 @@ class PowerofficeService
     {
         return $this->performRequest("delete", "/Product/$id");
     }
+
 
     // Product Group
     //--------------------------------------------------------------------------------------------------
@@ -262,6 +266,7 @@ class PowerofficeService
         return $this->performRequest("delete", "/ProductGroup/$id");
     }
 
+
     // Contact Group
     //--------------------------------------------------------------------------------------------------
     public function getContactGroups($params = [])
@@ -284,6 +289,7 @@ class PowerofficeService
         return $this->performRequest("delete", "/ContactGroup/$id");
     }
 
+
     // Vat Code
     //--------------------------------------------------------------------------------------------------
     public function getVatCodes($params = [])
@@ -300,6 +306,7 @@ class PowerofficeService
     {
         return $this->performRequest("get", "VatCode/chartofaccount/{$vatCode}", $params);
     }
+
 
     // General Account Ledger
     //--------------------------------------------------------------------------------------------------
@@ -323,6 +330,7 @@ class PowerofficeService
         return $this->performRequest("delete", "/GeneralLedgerAccount/{$id}");
     }
 
+
     // Bank Transfer
     //--------------------------------------------------------------------------------------------------
     public function getBankTransfers($params = [])
@@ -340,10 +348,11 @@ class PowerofficeService
         return $this->performRequest("post", "/Bank/BankTransfer", $params);
     }
 
-    public function deleteBankTransfers($id)
+    public function deleteBankTransfer($id)
     {
         return $this->performRequest("delete", "/Bank/BankTransfer/{$id}");
     }
+
 
     // Department
     //--------------------------------------------------------------------------------------------------
@@ -362,10 +371,11 @@ class PowerofficeService
         return $this->performRequest("post", "/Department", $params);
     }
 
-    public function deleteDepartments($id)
+    public function deleteDepartment($id)
     {
         return $this->performRequest("delete", "/Department/{$id}");
     }
+
 
     // Project Activity
     //--------------------------------------------------------------------------------------------------
@@ -379,6 +389,7 @@ class PowerofficeService
         return $this->performRequest("get", "/ProjectActivity/{$id}");
     }
 
+
     // Project Team Member
     //--------------------------------------------------------------------------------------------------
     public function getProjectTeamMembers($params = [])
@@ -390,6 +401,7 @@ class PowerofficeService
     {
         return $this->performRequest("get", "/ProjectTeamMember/{$id}");
     }
+
 
     // Location
     //--------------------------------------------------------------------------------------------------
@@ -408,10 +420,80 @@ class PowerofficeService
         return $this->performRequest("post", "/Location", $params);
     }
 
-    public function deleteLocations($id)
+    public function deleteLocation($id)
     {
         return $this->performRequest("delete", "/Location/{$id}");
     }
+
+
+    // Time Tracking Activity
+    //--------------------------------------------------------------------------------------------------
+    public function getTimeTrackingActivities($params = [])
+    {
+        return $this->performRequest("get", "/TimeTracking/Activity", $params);
+    }
+
+    public function getTimeTrackingActivity($id)
+    {
+        return $this->performRequest("get", "/TimeTracking/Activity/{$id}");
+    }
+
+    public function createTimeTrackingActivity($params = [])
+    {
+        return $this->performRequest("post", "/TimeTracking/Activity", $params);
+    }
+
+    public function deleteTimeTrackingActivity($id)
+    {
+        return $this->performRequest("delete", "/TimeTracking/Activity/{$id}");
+    }
+
+
+    // Time Tracking Hour Type
+    //--------------------------------------------------------------------------------------------------
+    public function getTimeTrackingHourTypes($params = [])
+    {
+        return $this->performRequest("get", "/TimeTracking/HourType", $params);
+    }
+
+    public function getTimeTrackingHourType($id)
+    {
+        return $this->performRequest("get", "/TimeTracking/HourType/{$id}");
+    }
+
+    public function createTimeTrackingHourType($params = [])
+    {
+        return $this->performRequest("post", "/TimeTracking/HourType", $params);
+    }
+
+    public function deleteTimeTrackingHourType($id)
+    {
+        return $this->performRequest("delete", "/TimeTracking/HourType/{$id}");
+    }
+
+
+    // Time Tracking Entry
+    //--------------------------------------------------------------------------------------------------
+    public function getTimeTrackingEntries($params = [])
+    {
+        return $this->performRequest("get", "/TimeTracking/TimeTrackingEntry", $params);
+    }
+
+    public function getTimeTrackingEntry($id)
+    {
+        return $this->performRequest("get", "/TimeTracking/TimeTrackingEntry/{$id}");
+    }
+
+    public function createTimeTrackingEntry($params = [])
+    {
+        return $this->performRequest("post", "/TimeTracking/TimeTrackingEntry", $params);
+    }
+
+    public function deleteTimeTrackingEntry($id)
+    {
+        return $this->performRequest("delete", "/TimeTracking/TimeTrackingEntry/{$id}");
+    }
+
 
     // Subledger Number Serie
     //--------------------------------------------------------------------------------------------------
