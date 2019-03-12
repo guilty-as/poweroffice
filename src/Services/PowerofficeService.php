@@ -379,6 +379,18 @@ class PowerofficeService
         return $this->performRequest("get", "/ProjectActivity/{$id}");
     }
 
+    // Project Team Member
+    //--------------------------------------------------------------------------------------------------
+    public function getProjectTeamMembers($params = [])
+    {
+        return $this->performRequest("get", "/ProjectTeamMember", $params);
+    }
+
+    public function getProjectTeamMember($id)
+    {
+        return $this->performRequest("get", "/ProjectTeamMember/{$id}");
+    }
+
     // Location
     //--------------------------------------------------------------------------------------------------
     public function getLocations($params = [])

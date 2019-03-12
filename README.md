@@ -188,7 +188,7 @@ The following services are implemented in the API client wrapper:
 - [x] ProductGroup
 - [ ] Project
 - [x] ProjectActivity
-- [ ] ProjectTeamMember
+- [x] ProjectTeamMember
 - [ ] RecurringInvoice
 - [ ] Reporting/AccountTransactions
 - [ ] Reporting/CustomerLedger
