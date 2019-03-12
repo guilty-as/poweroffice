@@ -189,7 +189,7 @@ The following services are implemented in the API client wrapper:
 - [ ] Project
 - [x] ProjectActivity
 - [x] ProjectTeamMember
-- [ ] RecurringInvoice
+- [x] RecurringInvoice
 - [ ] Reporting/AccountTransactions
 - [ ] Reporting/CustomerLedger
 - [ ] Reporting/InvoiceJournal

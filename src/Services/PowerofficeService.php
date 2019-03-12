@@ -207,7 +207,7 @@ class PowerofficeService
 
     public function getOutgoingInvoices($params = [])
     {
-        return $this->performRequest("get", "/OutgoingInvoice/list", $params);
+        return $this->performRequest("get", "/OutgoingInvoice/List", $params);
     }
 
     public function deleteOutgoingInvoice($id)
@@ -218,6 +218,29 @@ class PowerofficeService
     public function getOutgoingInvoice($id)
     {
         return $this->performRequest("get", "/OutgoingInvoice/$id");
+    }
+
+
+    // Recurring Invoice
+    //--------------------------------------------------------------------------------------------------
+    public function createRecurringInvoice($params)
+    {
+        return $this->performRequest("post", "/RecurringInvoice", $params);
+    }
+
+    public function getRecurringInvoices($params = [])
+    {
+        return $this->performRequest("get", "/RecurringInvoice/List", $params);
+    }
+
+    public function deleteRecurringInvoice($id)
+    {
+        return $this->performRequest("delete", "/RecurringInvoice/{$id}");
+    }
+
+    public function getRecurringInvoice($id)
+    {
+        return $this->performRequest("get", "/RecurringInvoice/$id");
     }
 
 
