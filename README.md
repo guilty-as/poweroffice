@@ -80,10 +80,12 @@ track of the "session" (access token, refresh token and expire date) we use a
 Session class that stores these values for us, out of the box the following 
 session implementations are provided:
 
+
 ### Provided Session Implementations
 
 - ArraySession - Used for testing
-- ValueStoreSession - Can be used in production, saves all data in a json file defined in the "poweroffice.store_path"config option, uses [Spatie's ValueStore package](https://github.com/spatie/valuestore) 
+- ValueStoreSession - Can be used in production, saves all data in a json file defined in the "poweroffice.store_path" config option, uses [Spatie's ValueStore package](https://github.com/spatie/valuestore) 
+
 
 ### Implementing your own session class
 
@@ -117,7 +119,24 @@ interface SessionInterface
 ```
 
 ```php
-// TODO: Make usage docs
+<?php
+
+use Guilty\Poweroffice\Interfaces\SessionInterface;
+
+class MyCustomSession implements SessionInterface
+{
+    public function setAccessToken($accessToken) { /* TODO: Implement */ }
+    public function getAccessToken() { /* TODO: Implement */ }
+    public function setRefreshToken($refreshToken) { /* TODO: Implement */ }
+    public function getRefreshToken() { /* TODO: Implement */ }
+    public function canRefresh() { /* TODO: Implement */ }
+    public function disconnect() { /* TODO: Implement */ }
+    public function setExpireDate(\DateTime $expireDate) { /* TODO: Implement */ }
+    public function getExpireDate() { /* TODO: Implement */ }
+    public function hasExpired() { /* TODO: Implement */ }
+    public function isValid() { /* TODO: Implement */ }
+    public function setFromResponse($response) { /* TODO: Implement */ }
+}
 ```
 
 # Note about oData filtering
