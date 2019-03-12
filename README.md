@@ -1,10 +1,10 @@
 # PowerOffice PHP API Client
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/guilty/apsis.svg?style=flat-square)](https://packagist.org/packages/guilty/apsis)
-[![Total Downloads](https://img.shields.io/packagist/dt/guilty/apsis.svg?style=flat-square)](https://packagist.org/packages/guilty/apsis)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/guilty/poweroffice.svg?style=flat-square)](https://packagist.org/packages/guilty/poweroffice)
+[![Total Downloads](https://img.shields.io/packagist/dt/guilty/poweroffice.svg?style=flat-square)](https://packagist.org/packages/guilty/poweroffice)
 
 
-APSIS API client, used for interacting with the [APSIS](https://www.apsis.com/) API: http://se.apidoc.anpdm.com
+poweroffice API client, used for interacting with the [poweroffice](https://www.poweroffice.com/) API: http://se.apidoc.anpdm.com
 
 
 ## Installation
@@ -22,40 +22,38 @@ This package is compatible with Laravel
 
 You can publish the config file like so
 ```
-php artisan vendor:publish --provider="Guilty\Apsis\ApsisServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Guilty\Poweroffice\PowerofficeServiceProvider" --tag="config"
 ```
 
 This is the contents of the published config file:
 
 ```php
+<?php
+
 return [
-    /*
-     * This is the API key for your APSIS account.
-     * Read how to generate an api key here:
-     * http://se.apidoc.anpdm.com/Help/GettingStarted/Getting%20started
-     */
-    "api_key" => env("APSIS_API_KEY")
+    'application_key' => env("POWEROFFICE_APPLICATION_KEY"),
+    'client_key' => env("POWEROFFICE_CLIENT_KEY"),
+    'redirect_url' => env("POWEROFFICE_REDIRECT_URL"),
+    'test_mode' => env("POWEROFFICE_TEST_MODE"),
+    'store_path' => storage_path("poweroffice.json")
 ];
 ```
 
 To get started, add the following environment variable to your .env file:
 
 ```
-APSIS_API_KEY="your-api-key"
+POWEROFFICE_APPLICATION_KEY=aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+POWEROFFICE_CLIENT_KEY=bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
+POWEROFFICE_TEST_MODE=true
 ```
 
-
-You can use the facade like so:
-```php
-
-```
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
---- 
+---
 
 Brought to you by [Guilty AS](https://guilty.no)
 
-The APSIS logo and Trademark is the property of [APSIS International AB](https://www.apsis.com/)
+The poweroffice logo and Trademark is the property of [poweroffice International AB](https://www.poweroffice.com/)
