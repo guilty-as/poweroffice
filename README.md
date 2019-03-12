@@ -185,7 +185,7 @@ The following services are implemented in the API client wrapper:
 - [ ] Payroll/PayItem
 - [ ] Payroll/SalaryLine
 - [x] Product
-- [ ] ProductGroup
+- [x] ProductGroup
 - [ ] Project
 - [ ] ProjectActivity
 - [ ] ProjectTeamMember

@@ -234,6 +234,26 @@ class PowerofficeService
         return $this->performRequest("delete", "/Product/$id");
     }
 
+    public function getProductGroups($params = [])
+    {
+        return $this->performRequest("get", "/ProductGroup", $params);
+    }
+
+    public function getProductGroup($id)
+    {
+        return $this->performRequest("get", "/ProductGroup/$id");
+    }
+
+    public function createProductGroup($params)
+    {
+        return $this->performRequest("post", "/ProductGroup", $params);
+    }
+
+    public function deleteProductGroup($id)
+    {
+        return $this->performRequest("delete", "/ProductGroup/$id");
+    }
+
     public function getVatCodes($params = [])
     {
         return $this->performRequest("get", "/VatCode", $params);
