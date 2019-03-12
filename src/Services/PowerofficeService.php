@@ -183,22 +183,22 @@ class PowerofficeService
         return $this->performRequest("delete", "/customer/$id");
     }
 
-    public function createInvoice($params)
+    public function createOutgoingInvoice($params)
     {
         return $this->performRequest("post", "/outgoinginvoice", $params);
     }
 
-    public function getInvoices($params = [])
+    public function getOutgoingInvoices($params = [])
     {
         return $this->performRequest("get", "/outgoinginvoice/list", $params);
     }
 
-    public function deleteInvoice($id)
+    public function deleteOutgoingInvoice($id)
     {
         return $this->performRequest("delete", "/outgoinginvoice/{$id}");
     }
 
-    public function getInvoice($id)
+    public function getOutgoingInvoice($id)
     {
         return $this->performRequest("get", "/outgoinginvoice/$id");
     }
@@ -226,6 +226,16 @@ class PowerofficeService
     public function getVatCodes($params = [])
     {
         return $this->performRequest("get", "/vatcode", $params);
+    }
+
+    public function getVatCode($id)
+    {
+        return $this->performRequest("get", "/vatcode/{$id}");
+    }
+
+    public function getVatCodeChartOfAccount($vatCode, $params = [])
+    {
+        return $this->performRequest("get", "VatCode/chartofaccount/{$vatCode}", $params);
     }
 
     public function getGeneralLedgerAccounts($params = [])

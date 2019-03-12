@@ -178,12 +178,12 @@ The following services are implemented in the API client wrapper:
 - [ ] InvoiceAttachment
 - [ ] JournalEntryVoucher
 - [ ] Location
-- [ ] OutgoingInvoice
+- [x] OutgoingInvoice
 - [ ] PartyBankAccount
 - [ ] PartyContactPerson
 - [ ] Payroll/PayItem
 - [ ] Payroll/SalaryLine
-- [ ] Product
+- [x] Product
 - [ ] ProductGroup
 - [ ] Project
 - [ ] ProjectActivity
@@ -200,7 +200,7 @@ The following services are implemented in the API client wrapper:
 - [ ] TimeTracking/Activity
 - [ ] TimeTracking/HourType
 - [ ] TimeTracking/TimeTrackingEntry
-- [ ] VatCode
+- [x] VatCode
 
 
 # License
