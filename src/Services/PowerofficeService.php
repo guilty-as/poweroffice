@@ -159,7 +159,7 @@ class PowerofficeService
         ], $params);
 
         /** @var \GuzzleHttp\Psr7\Response $request */
-        $request = $this->client->request($method, $this->getApiUrl($path), $options);
+        $request = $this->client->requestAsync($method, $this->getApiUrl($path), $options);
         $response = json_decode($request->getBody(), true);
 
         if ($request->getStatusCode() == 401) {
@@ -252,6 +252,21 @@ class PowerofficeService
     public function getGeneralLedgerAccounts($params = [])
     {
         return $this->performRequest("get", "/GeneralLedgerAccount", $params);
+    }
+
+    public function createGeneralLedgerAccount($params = [])
+    {
+        return $this->performRequest("post", "/GeneralLedgerAccount", $params);
+    }
+
+    public function getGeneralLedgerAccount($id)
+    {
+        return $this->performRequest("get", "/GeneralLedgerAccount/{$id}");
+    }
+
+    public function deleteGeneralLedgerAccount($id)
+    {
+        return $this->performRequest("delete", "/GeneralLedgerAccount/{$id}");
     }
 
     public function getInvoiceDeliveryTypes()
