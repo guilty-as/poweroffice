@@ -177,7 +177,7 @@ The following services are implemented in the API client wrapper:
 - [x] GeneralLedgerAccount
 - [ ] Import
 - [ ] InvoiceAttachment
-- [ ] JournalEntryVoucher
+- [x] JournalEntryVoucher
 - [x] Location
 - [x] OutgoingInvoice
 - [x] PartyBankAccount

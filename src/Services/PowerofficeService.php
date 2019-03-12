@@ -312,6 +312,28 @@ class PowerofficeService
         return $this->performRequest("delete", "/ContactGroup/$id");
     }
 
+    // Journal Entry Voucher
+    //--------------------------------------------------------------------------------------------------
+    public function getJournalEntryVouchers($params = [])
+    {
+        return $this->performRequest("get", "/JournalEntryVoucher", $params);
+    }
+
+    public function getJournalEntryVoucher($id)
+    {
+        return $this->performRequest("get", "/JournalEntryVoucher/$id");
+    }
+
+    public function createJournalEntryVoucher($params)
+    {
+        return $this->performRequest("post", "/JournalEntryVoucher", $params);
+    }
+
+    public function deleteJournalEntryVoucher($id)
+    {
+        return $this->performRequest("delete", "/JournalEntryVoucher/$id");
+    }
+
 
     // Vat Code
     //--------------------------------------------------------------------------------------------------
