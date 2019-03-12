@@ -499,10 +499,20 @@ class PowerofficeService
     //--------------------------------------------------------------------------------------------------
     public function getReportingUsage(\DateTime $fromDate, \DateTime $toDate, $params = [])
     {
-        $params["fromDate"] = $fromDate->format("Y-m-d H:i:s");
-        $params["toDate"] = $toDate->format("Y-m-d H:i:s");
+        $params["query"]["fromDate"] = $fromDate->format("Y-m-d H:i:s");
+        $params["query"]["toDate"] = $toDate->format("Y-m-d H:i:s");
 
         return $this->performRequest("get", "/Reporting/Usage", $params);
+    }
+
+
+    // Reporting Trial
+    //--------------------------------------------------------------------------------------------------
+    public function getReportingTrialBalance(\DateTime $date = null, $params = [])
+    {
+        $params["query"]["date"] = $date->format("Y-m-d H:i:s");
+
+        return $this->performRequest("get", "/Reporting/TrialBalance/", $params);
     }
 
 
