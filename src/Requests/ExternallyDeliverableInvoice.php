@@ -22,6 +22,7 @@ class ExternallyDeliverableInvoiceDeliveredRequest
         $this->comment = $comment;
     }
 
+    // TODO(12 mar 2019) ~ Helge: Pull this into its own class?
     public function withFile($filePath, $filename = null)
     {
         if (!file_exists($filePath)) {
