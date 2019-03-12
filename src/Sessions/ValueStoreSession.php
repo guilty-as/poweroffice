@@ -1,12 +1,12 @@
 <?php
 
-namespace Guilty\Poweroffice\Services;
+namespace Guilty\Poweroffice\Sessions;
 
-use App\Interfaces\Oauth2ClientCredentialsSession;
 use Carbon\Carbon;
+use Guilty\Poweroffice\Interfaces\PowerofficeSessionInterface;
 use Spatie\Valuestore\Valuestore;
 
-class PowerofficeSession implements Oauth2ClientCredentialsSession
+class ValueStoreSession implements PowerofficeSessionInterface
 {
     private $storeKeyPrefix = "POWEROFFICE_SESSION_";
     private $accessTokenStoreKey = "ACCESS_TOKEN";

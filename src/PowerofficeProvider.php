@@ -5,6 +5,7 @@ namespace Guilty\Poweroffice;
 use Guilty\Poweroffice\Interfaces\PowerofficeSessionInterface;
 use Guilty\Poweroffice\Services\PowerofficeService;
 use Guilty\Poweroffice\Services\PowerofficeSession;
+use Guilty\Poweroffice\Services\ValueStoreSession;
 use GuzzleHttp\Client;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Valuestore\Valuestore;
@@ -17,7 +18,7 @@ class PowerofficeProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/config.php' => config_path('apsis.php'),
+                __DIR__ . '/../config/config.php' => config_path('poweroffice.php'),
             ], 'config');
         }
 
@@ -25,21 +26,19 @@ class PowerofficeProvider extends ServiceProvider
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'apsis');
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'poweroffice');
 
 
-        $this->app->singleton(PowerofficeSessionInterface::class, function () {
-            return Valuestore::make(config("poweroffice.store_path"));
+        $this->app->bind(PowerOfficeSessionInterface::class, function () {
+            $store = Valuestore::make(config("poweroffice.store_path"));
+            return new ValueStoreSession($store);
         });
 
-        $this->app->singleton(PowerofficeSession::class, function () {
-            return new PowerofficeSession(app(PowerofficeSessionInterface::class));
-        });
 
-        $this->app->singleton(PowerofficeService::class, function () {
-            return new PowerofficeService(
+        $this->app->bind(PowerOfficeService::class, function () {
+            return new PowerOfficeService(
                 app(Client::class),
-                app(PowerofficeSession::class),
+                app(PowerOfficeSessionInterface::class),
                 config('services.poweroffice.application_key'),
                 config('services.poweroffice.client_key'),
                 config('services.poweroffice.test_mode', true)
@@ -51,7 +50,6 @@ class PowerofficeProvider extends ServiceProvider
     {
         return [
             PowerofficeSessionInterface::class,
-            PowerofficeSession::class,
             PowerofficeService::class,
         ];
     }

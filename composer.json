@@ -19,8 +19,9 @@
     ],
     "require": {
         "php": "^7.2",
+        "ext-json": "*",
         "guzzlehttp/guzzle": "^6.3",
-        "ext-json": "*"
+        "spatie/valuestore": "^1.2"
     },
     "require-dev": {
         "orchestra/testbench": "^3.5"
