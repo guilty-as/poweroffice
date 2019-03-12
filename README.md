@@ -15,10 +15,13 @@ You can install the package via composer:
 composer require guilty/poweroffice
 ```
 
+## Usage 
 
-## Laravel
+## Standalone
 
-This package is compatible with Laravel
+
+
+### Laravel
 
 You can publish the config file like so
 ```
@@ -47,7 +50,46 @@ POWEROFFICE_CLIENT_KEY=bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
 POWEROFFICE_TEST_MODE=true
 ```
 
-## Usage 
+### Session Implementations
+
+The PowerOffice API uses OAUTH2 client_credentials for authentication, to keep 
+track of the "session" (access token, refresh token and expire date) we use a 
+Session class that stores these values for us, out of the box the following 
+session implementations are provided:
+
+#### Provided Session Implementations
+
+- ArraySession - Used for testing
+- ValueStoreSession - Can be used in production, saves all data in a json file defined in the "poweroffice.store_path"config option, uses [Spatie's ValueStore package](https://github.com/spatie/valuestore) 
+
+#### Implementing your own session class
+
+Just implement the SessionInterface interface and add the required methods, the 
+implementation is up to you, you can put the data in a database, a file, in redis, 
+or whatever you need to do.
+
+
+Here is the interface you need to implement.
+
+```php
+namespace Guilty\Poweroffice\Interfaces;
+
+interface SessionInterface
+{
+    public function setAccessToken($accessToken);
+    public function getAccessToken();
+    public function setRefreshToken($refreshToken);
+    public function getRefreshToken();
+    public function canRefresh();
+    public function disconnect();
+    public function setExpireDate(\DateTime $expireDate);
+    /** @return \DateTimeImmutable */
+    public function getExpireDate();
+    public function hasExpired();
+    public function isValid();
+    public function setFromResponse($response);
+}
+```
 
 ```php
 // TODO: Make usage docs
