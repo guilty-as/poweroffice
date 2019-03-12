@@ -153,8 +153,6 @@ The following services are implemented in the API client wrapper:
 - [x] TestSession (testing)
 - [x] ValueStoreSession (laravel)
 - [x] RedisSession
-- [ ] EloquentSession (laravel)
-- [ ] PdoSession
 
 ## Functionality
 
