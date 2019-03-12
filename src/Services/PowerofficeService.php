@@ -331,6 +331,22 @@ class PowerofficeService
     }
 
 
+    // Party Bank Account
+    //--------------------------------------------------------------------------------------------------
+    public function getPartyBankAccounts($params = [])
+    {
+        return $this->performRequest("get", "/PartyBankAccount", $params);
+    }
+
+
+    // Party Contact Person
+    //--------------------------------------------------------------------------------------------------
+    public function getPartyContactPeople($params = [])
+    {
+        return $this->performRequest("get", "/PartyContactPerson", $params);
+    }
+
+
     // General Account Ledger
     //--------------------------------------------------------------------------------------------------
     public function getGeneralLedgerAccounts($params = [])

@@ -180,8 +180,8 @@ The following services are implemented in the API client wrapper:
 - [ ] JournalEntryVoucher
 - [x] Location
 - [x] OutgoingInvoice
-- [ ] PartyBankAccount
-- [ ] PartyContactPerson
+- [x] PartyBankAccount
+- [x] PartyContactPerson
 - [ ] Payroll/PayItem
 - [ ] Payroll/SalaryLine
 - [x] Product
