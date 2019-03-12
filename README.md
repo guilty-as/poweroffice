@@ -195,7 +195,7 @@ The following services are implemented in the API client wrapper:
 - [ ] Reporting/InvoiceJournal
 - [ ] Reporting/SupplierLedger
 - [ ] Reporting/TrialBalance
-- [ ] Reporting/Usage
+- [x] Reporting/Usage
 - [x] SubledgerNumberSeries
 - [ ] Supplier
 - [x] TimeTracking/Activity

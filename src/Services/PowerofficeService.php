@@ -495,6 +495,17 @@ class PowerofficeService
     }
 
 
+    // Reporting Usage
+    //--------------------------------------------------------------------------------------------------
+    public function getReportingUsage(\DateTime $fromDate, \DateTime $toDate, $params = [])
+    {
+        $params["fromDate"] = $fromDate->format("Y-m-d H:i:s");
+        $params["toDate"] = $toDate->format("Y-m-d H:i:s");
+
+        return $this->performRequest("get", "/Bank/BankTransfer", $params);
+    }
+
+
     // Bank Transfer
     //--------------------------------------------------------------------------------------------------
     public function getBankTransfers($params = [])
