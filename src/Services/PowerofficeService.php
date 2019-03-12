@@ -176,72 +176,72 @@ class PowerofficeService
 
     public function createCustomer($params)
     {
-        return $this->performRequest("post", "/customer", $params);
+        return $this->performRequest("post", "/Customer", $params);
     }
 
     public function getCustomers($params = [])
     {
-        return $this->performRequest("get", "/customer", $params);
+        return $this->performRequest("get", "/Customer", $params);
     }
 
     public function getCustomer($id)
     {
-        return $this->performRequest("get", "/customer/$id");
+        return $this->performRequest("get", "/Customer/$id");
     }
 
     public function deleteCustomer($id)
     {
-        return $this->performRequest("delete", "/customer/$id");
+        return $this->performRequest("delete", "/Customer/$id");
     }
 
     public function createOutgoingInvoice($params)
     {
-        return $this->performRequest("post", "/outgoinginvoice", $params);
+        return $this->performRequest("post", "/OutgoingInvoice", $params);
     }
 
     public function getOutgoingInvoices($params = [])
     {
-        return $this->performRequest("get", "/outgoinginvoice/list", $params);
+        return $this->performRequest("get", "/OutgoingInvoice/list", $params);
     }
 
     public function deleteOutgoingInvoice($id)
     {
-        return $this->performRequest("delete", "/outgoinginvoice/{$id}");
+        return $this->performRequest("delete", "/OutgoingInvoice/{$id}");
     }
 
     public function getOutgoingInvoice($id)
     {
-        return $this->performRequest("get", "/outgoinginvoice/$id");
+        return $this->performRequest("get", "/OutgoingInvoice/$id");
     }
 
     public function getProducts($params = [])
     {
-        return $this->performRequest("get", "/product", $params);
+        return $this->performRequest("get", "/Product", $params);
     }
 
     public function getProduct($id)
     {
-        return $this->performRequest("get", "/product/$id");
+        return $this->performRequest("get", "/Product/$id");
     }
 
     public function createProduct($params)
     {
-        return $this->performRequest("post", "/product", $params);
+        return $this->performRequest("post", "/Product", $params);
     }
 
     public function deleteProduct($id)
     {
-        return $this->performRequest("delete", "/product/$id");
+        return $this->performRequest("delete", "/Product/$id");
     }
 
     public function getVatCodes($params = [])
     {
-        return $this->performRequest("get", "/vatcode", $params);
+        return $this->performRequest("get", "/VatCode", $params);
     }
 
     public function getVatCode($id)
     {
-        return $this->performRequest("get", "/vatcode/{$id}");
+        return $this->performRequest("get", "/VatCode/{$id}");
     }
 
     public function getVatCodeChartOfAccount($vatCode, $params = [])
@@ -267,6 +267,26 @@ class PowerofficeService
     public function deleteGeneralLedgerAccount($id)
     {
         return $this->performRequest("delete", "/GeneralLedgerAccount/{$id}");
+    }
+
+    public function getBankTransfers($params = [])
+    {
+        return $this->performRequest("get", "/Bank/BankTransfer", $params);
+    }
+
+    public function getBankTransfer($id)
+    {
+        return $this->performRequest("get", "/Bank/BankTransfer/{$id}");
+    }
+
+    public function createBankTransfers($params = [])
+    {
+        return $this->performRequest("post", "/Bank/BankTransfer", $params);
+    }
+
+    public function deleteBankTransfers($id)
+    {
+        return $this->performRequest("delete", "/Bank/BankTransfer/{$id}");
     }
 
 
