@@ -9,9 +9,6 @@ class ExternallyDeliverableInvoiceDeliveredRequest
     protected $externallyDeliverableInvoiceId;
     protected $fileBase64;
     protected $fileName;
-    /**
-     * @var null
-     */
     protected $comment;
 
     public function __construct($externallyDeliverableInvoiceId, $comment = null)
