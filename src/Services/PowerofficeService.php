@@ -120,8 +120,6 @@ class PowerofficeService
         }
 
         $this->session->setFromResponse($response);
-
-        return $response;
     }
 
     /**
@@ -145,8 +143,6 @@ class PowerofficeService
         }
 
         $this->session->setFromResponse($response);
-
-        return $response;
     }
 
     /**
