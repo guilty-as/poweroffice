@@ -174,6 +174,8 @@ class PowerofficeService
         return $response;
     }
 
+    // Customer
+    //--------------------------------------------------------------------------------------------------
     public function createCustomer($params)
     {
         return $this->performRequest("post", "/Customer", $params);
@@ -194,6 +196,8 @@ class PowerofficeService
         return $this->performRequest("delete", "/Customer/$id");
     }
 
+    // Outgoing Invoice
+    //--------------------------------------------------------------------------------------------------
     public function createOutgoingInvoice($params)
     {
         return $this->performRequest("post", "/OutgoingInvoice", $params);
@@ -214,6 +218,8 @@ class PowerofficeService
         return $this->performRequest("get", "/OutgoingInvoice/$id");
     }
 
+    // Product
+    //--------------------------------------------------------------------------------------------------
     public function getProducts($params = [])
     {
         return $this->performRequest("get", "/Product", $params);
@@ -234,6 +240,8 @@ class PowerofficeService
         return $this->performRequest("delete", "/Product/$id");
     }
 
+    // Product Group
+    //--------------------------------------------------------------------------------------------------
     public function getProductGroups($params = [])
     {
         return $this->performRequest("get", "/ProductGroup", $params);
@@ -254,6 +262,30 @@ class PowerofficeService
         return $this->performRequest("delete", "/ProductGroup/$id");
     }
 
+    // Contact Group
+    //--------------------------------------------------------------------------------------------------
+    public function getContactGroups($params = [])
+    {
+        return $this->performRequest("get", "/ContactGroup", $params);
+    }
+
+    public function getContactGroup($id)
+    {
+        return $this->performRequest("get", "/ContactGroup/$id");
+    }
+
+    public function createContactGroup($params)
+    {
+        return $this->performRequest("post", "/ContactGroup", $params);
+    }
+
+    public function deleteContactGroup($id)
+    {
+        return $this->performRequest("delete", "/ContactGroup/$id");
+    }
+
+    // Vat Code
+    //--------------------------------------------------------------------------------------------------
     public function getVatCodes($params = [])
     {
         return $this->performRequest("get", "/VatCode", $params);
@@ -269,6 +301,8 @@ class PowerofficeService
         return $this->performRequest("get", "VatCode/chartofaccount/{$vatCode}", $params);
     }
 
+    // General Account Ledger
+    //--------------------------------------------------------------------------------------------------
     public function getGeneralLedgerAccounts($params = [])
     {
         return $this->performRequest("get", "/GeneralLedgerAccount", $params);
@@ -289,6 +323,8 @@ class PowerofficeService
         return $this->performRequest("delete", "/GeneralLedgerAccount/{$id}");
     }
 
+    // Bank Transfer
+    //--------------------------------------------------------------------------------------------------
     public function getBankTransfers($params = [])
     {
         return $this->performRequest("get", "/Bank/BankTransfer", $params);
@@ -309,6 +345,8 @@ class PowerofficeService
         return $this->performRequest("delete", "/Bank/BankTransfer/{$id}");
     }
 
+    // Subledger Number Serie
+    //--------------------------------------------------------------------------------------------------
     public function getSubledgerNumberSeries($params = [])
     {
         return $this->performRequest("delete", "/SubledgerNumberSeries", $params);
@@ -319,6 +357,9 @@ class PowerofficeService
         return $this->performRequest("delete", "/SubledgerNumberSeries/{$id}");
     }
 
+
+    // Misc
+    //--------------------------------------------------------------------------------------------------
     public function getInvoiceDeliveryTypes()
     {
         return [
