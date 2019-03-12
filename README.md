@@ -4,7 +4,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/guilty/poweroffice.svg?style=flat-square)](https://packagist.org/packages/guilty/poweroffice)
 
 
-poweroffice API client, used for interacting with the [poweroffice](https://www.poweroffice.com/) API: http://se.apidoc.anpdm.com
+poweroffice API client, used for interacting with the [PowerOffice](https://poweroffice.no/) API: https://api.poweroffice.net/Web/docs/index.html
 
 
 ## Installation
