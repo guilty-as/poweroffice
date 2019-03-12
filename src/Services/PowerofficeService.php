@@ -514,6 +514,19 @@ class PowerofficeService
     }
 
 
+    // Blob
+    //--------------------------------------------------------------------------------------------------
+    public function getBlobVoucherEhf($voucherNumber)
+    {
+        return $this->performRequest("get", "/Blob/VoucherEhf/{$voucherNumber}/");
+    }
+
+    public function getBlobVoucherEhfPage($voucherNumber, $pageNumber)
+    {
+        return $this->performRequest("get", "/Blob/VoucherEhf/{$voucherNumber}/{$pageNumber}");
+    }
+
+
     // Reporting Usage
     //--------------------------------------------------------------------------------------------------
     public function getReportingUsage(\DateTime $fromDate, \DateTime $toDate, $params = [])
