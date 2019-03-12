@@ -148,46 +148,46 @@ It seems that PowerOffice's API is case sensitive when it comes to the field nam
 
 The following services are implemented in the API client wrapper: 
 
-[] Bank/BankTransfer
-[] Bank/ClientBankAccount
-[] Blob
-[] BrandingTheme
-[] Client
-[] ClientAuth
-[] ContactGroup
-[] Customer
-[] DebtCollection
-[] Department
-[] Employee
-[] ExternallyDeliverableInvoice
-[] GeneralLedgerAccount
-[] Import
-[] InvoiceAttachment
-[] JournalEntryVoucher
-[] Location
-[] OutgoingInvoice
-[] PartyBankAccount
-[] PartyContactPerson
-[] Payroll/PayItem
-[] Payroll/SalaryLine
-[] Product
-[] ProductGroup
-[] Project
-[] ProjectActivity
-[] ProjectTeamMember
-[] RecurringInvoice
-[] Reporting/AccountTransactions
-[] Reporting/CustomerLedger
-[] Reporting/InvoiceJournal
-[] Reporting/SupplierLedger
-[] Reporting/TrialBalance
-[] Reporting/Usage
-[] SubledgerNumberSeries
-[] Supplier
-[] TimeTracking/Activity
-[] TimeTracking/HourType
-[] TimeTracking/TimeTrackingEntry
-[] VatCode
+- [] Bank/BankTransfer
+- [] Bank/ClientBankAccount
+- [] Blob
+- [] BrandingTheme
+- [] Client
+- [] ClientAuth
+- [] ContactGroup
+- [] Customer
+- [] DebtCollection
+- [] Department
+- [] Employee
+- [] ExternallyDeliverableInvoice
+- [] GeneralLedgerAccount
+- [] Import
+- [] InvoiceAttachment
+- [] JournalEntryVoucher
+- [] Location
+- [] OutgoingInvoice
+- [] PartyBankAccount
+- [] PartyContactPerson
+- [] Payroll/PayItem
+- [] Payroll/SalaryLine
+- [] Product
+- [] ProductGroup
+- [] Project
+- [] ProjectActivity
+- [] ProjectTeamMember
+- [] RecurringInvoice
+- [] Reporting/AccountTransactions
+- [] Reporting/CustomerLedger
+- [] Reporting/InvoiceJournal
+- [] Reporting/SupplierLedger
+- [] Reporting/TrialBalance
+- [] Reporting/Usage
+- [] SubledgerNumberSeries
+- [] Supplier
+- [] TimeTracking/Activity
+- [] TimeTracking/HourType
+- [] TimeTracking/TimeTrackingEntry
+- [] VatCode
 
 
 # License
