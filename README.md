@@ -121,21 +121,18 @@ interface SessionInterface
 ```php
 <?php
 
-use Guilty\Poweroffice\Interfaces\SessionInterface;
+use Guilty\Poweroffice\Sessions\AbstractSession;
 
-class MyCustomSession implements SessionInterface
+// Or whatever else you want to store your session
+class ExcelSpreadsheetSession extends AbstractSession
 {
     public function setAccessToken($accessToken) { /* TODO: Implement */ }
     public function getAccessToken() { /* TODO: Implement */ }
     public function setRefreshToken($refreshToken) { /* TODO: Implement */ }
     public function getRefreshToken() { /* TODO: Implement */ }
-    public function canRefresh() { /* TODO: Implement */ }
     public function disconnect() { /* TODO: Implement */ }
     public function setExpireDate(\DateTime $expireDate) { /* TODO: Implement */ }
-    public function getExpireDate() { /* TODO: Implement */ }
-    public function hasExpired() { /* TODO: Implement */ }
-    public function isValid() { /* TODO: Implement */ }
-    public function setFromResponse($response) { /* TODO: Implement */ }
+    public function getExpireDate() { /* TODO: Implement */ } 
 }
 ```
 
