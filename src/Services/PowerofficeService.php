@@ -502,7 +502,7 @@ class PowerofficeService
         $params["fromDate"] = $fromDate->format("Y-m-d H:i:s");
         $params["toDate"] = $toDate->format("Y-m-d H:i:s");
 
-        return $this->performRequest("get", "/Bank/BankTransfer", $params);
+        return $this->performRequest("get", "/Reporting/Usage", $params);
     }
 
 
