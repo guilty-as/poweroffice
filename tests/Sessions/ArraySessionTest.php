@@ -6,6 +6,7 @@ namespace Guilty\Poweroffice\Tests\Sessions;
 
 use Guilty\Poweroffice\Sessions\ArraySession;
 use Guilty\Poweroffice\Sessions\SessionInterface;
+use Illuminate\Support\Facades\Date;
 use PHPUnit\Framework\TestCase;
 
 class ArraySessionTest extends TestCase
@@ -25,6 +26,27 @@ class ArraySessionTest extends TestCase
         $session = new ArraySession();
 
         $this->assertFalse($session->isValid());
+    }
+
+    /** @test */
+    public function setFromResponse_populates_data_correctly()
+    {
+        $date = new \DateTimeImmutable();
+        $response = [
+            "expires_in" => 601, //
+            "access_token" => "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+            "refresh_token" => "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+        ];
+
+        $session = new ArraySession();
+        $session->setFromResponse($response);
+
+        $this->assertEquals($response["access_token"], $session->getAccessToken());
+        $this->assertEquals($response["refresh_token"], $session->getRefreshToken());
+        $this->assertInstanceOf(\DateTimeImmutable::class, $session->getExpireDate());
+
+        // This might fail if this test runs slow...
+        $this->assertEquals(10,  $date->diff($session->getExpireDate())->format("%i"));
     }
 
     /** @test */
