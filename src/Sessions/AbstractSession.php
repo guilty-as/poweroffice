@@ -4,8 +4,6 @@
 namespace Guilty\Poweroffice\Sessions;
 
 
-use Guilty\Poweroffice\Interfaces\SessionInterface;
-
 abstract class AbstractSession implements SessionInterface
 {
     public function hasExpired()
@@ -34,9 +32,9 @@ abstract class AbstractSession implements SessionInterface
     public function setFromResponse($response)
     {
         $seconds = $response["expires_in"];
-        $date = (new \DateTime())->add(new \DateInterval("P{$seconds}S"));
+        $date = (new \DateTime())->add(new \DateInterval("PT{$seconds}S"));
 
-        $this->setExpireDate($date->format("Y-m-d H:i:s"));
+        $this->setExpireDate($date);
         $this->setAccessToken($response["access_token"]);
         $this->setRefreshToken($response["refresh_token"]);
     }

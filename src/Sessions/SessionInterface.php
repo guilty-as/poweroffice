@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Guilty\Poweroffice\Interfaces;
+namespace Guilty\Poweroffice\Sessions;
 
 
 interface SessionInterface
