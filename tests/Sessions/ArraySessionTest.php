@@ -5,7 +5,6 @@ namespace Guilty\Poweroffice\Tests\Sessions;
 
 use Guilty\Poweroffice\Sessions\ArraySession;
 use Guilty\Poweroffice\Sessions\SessionInterface;
-use Illuminate\Support\Facades\Date;
 use PHPUnit\Framework\TestCase;
 
 class ArraySessionTest extends TestCase
