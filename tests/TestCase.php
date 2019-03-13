@@ -13,8 +13,8 @@ class TestCase extends \PHPUnit\Framework\TestCase
     {
         return [
             "expires_in" => 600, // 10 Minutes defined in seconds
-            "access_token" => "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
-            "refresh_token" => "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+            "access_token" => "test-access-token",
+            "refresh_token" => "test-refresh-token",
         ];
     }
 

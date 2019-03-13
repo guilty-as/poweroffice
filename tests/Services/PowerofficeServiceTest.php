@@ -39,7 +39,7 @@ class PowerofficeServiceTest extends TestCase
 
         $service->getAccessToken();
 
-        $this->assertEquals("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa", $session->getAccessToken());
-        $this->assertEquals("bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb", $session->getRefreshToken());
+        $this->assertEquals("test-access-token", $session->getAccessToken());
+        $this->assertEquals("test-refresh-token", $session->getRefreshToken());
     }
 }
