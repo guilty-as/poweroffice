@@ -2,7 +2,6 @@
 
 namespace Guilty\Poweroffice\Sessions;
 
-
 class ArraySession extends AbstractSession
 {
     /**
@@ -53,5 +52,4 @@ class ArraySession extends AbstractSession
             return null;
         }
     }
-
 }

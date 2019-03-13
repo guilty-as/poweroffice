@@ -5,7 +5,6 @@ namespace Guilty\Poweroffice\Sessions;
 
 use Predis\Client;
 
-
 class RedisSession extends AbstractSession
 {
     /**

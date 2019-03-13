@@ -2,13 +2,11 @@
 
 namespace Guilty\Poweroffice\Services;
 
-
 use Guilty\Poweroffice\Exceptions\InvalidClientException;
 use Guilty\Poweroffice\Exceptions\TooManyRequestsException;
 use Guilty\Poweroffice\Exceptions\UnauthorizedException;
 use Guilty\Poweroffice\Interfaces\SessionInterface;
 use GuzzleHttp\Client;
-
 
 class PowerofficeService
 {
@@ -168,7 +166,6 @@ class PowerofficeService
 
         if ($request->getStatusCode() == 429) {
             throw new TooManyRequestsException("Too many requests");
-
         }
 
         return $response;

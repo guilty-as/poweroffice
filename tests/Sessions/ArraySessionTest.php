@@ -3,7 +3,6 @@
 
 namespace Guilty\Poweroffice\Tests\Sessions;
 
-
 use Guilty\Poweroffice\Sessions\ArraySession;
 use Guilty\Poweroffice\Sessions\SessionInterface;
 use Illuminate\Support\Facades\Date;
@@ -46,7 +45,7 @@ class ArraySessionTest extends TestCase
         $this->assertInstanceOf(\DateTimeImmutable::class, $session->getExpireDate());
 
         // This might fail if this test runs slow...
-        $this->assertEquals(10,  $date->diff($session->getExpireDate())->format("%i"));
+        $this->assertEquals(10, $date->diff($session->getExpireDate())->format("%i"));
     }
 
     /** @test */
@@ -131,5 +130,4 @@ class ArraySessionTest extends TestCase
             $session->getExpireDate()->format(SessionInterface::EXPIRES_AT_DATE_FORMAT)
         );
     }
-
 }

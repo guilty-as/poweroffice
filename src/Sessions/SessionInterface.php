@@ -3,7 +3,6 @@
 
 namespace Guilty\Poweroffice\Sessions;
 
-
 interface SessionInterface
 {
     const KEY_PREFIX = "POWEROFFICE_SESSION_";

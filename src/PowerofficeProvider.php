@@ -9,7 +9,6 @@ use GuzzleHttp\Client;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Valuestore\Valuestore;
 
-
 class PowerofficeProvider extends ServiceProvider
 {
     protected $defer = true;
@@ -21,7 +20,6 @@ class PowerofficeProvider extends ServiceProvider
                 __DIR__ . '/../config/config.php' => config_path('poweroffice.php'),
             ], 'config');
         }
-
     }
 
     public function register()

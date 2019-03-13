@@ -3,7 +3,6 @@
 
 namespace Guilty\Poweroffice\Requests;
 
-
 class ExternallyDeliverableInvoiceDeliveredRequest
 {
     protected $externallyDeliverableInvoiceId;

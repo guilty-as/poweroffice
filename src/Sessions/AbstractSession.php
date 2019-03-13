@@ -3,7 +3,6 @@
 
 namespace Guilty\Poweroffice\Sessions;
 
-
 abstract class AbstractSession implements SessionInterface
 {
     public function hasExpired()
@@ -52,5 +51,4 @@ abstract class AbstractSession implements SessionInterface
     abstract public function setExpireDate(\DateTime $expireDate);
 
     abstract public function getExpireDate();
-
 }

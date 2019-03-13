@@ -2,10 +2,8 @@
 
 namespace Guilty\Poweroffice;
 
-
 use Guilty\Poweroffice\Services\PowerofficeService;
 use Illuminate\Support\Facades\Facade;
-
 
 class PowerofficeFacade extends Facade
 {
