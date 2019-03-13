@@ -49,6 +49,11 @@ class ValueStoreSession extends AbstractSession
     public function getExpireDate()
     {
         $date = $this->store->get($this->keyName(self::KEY_EXPIRES_AT));
+
+        if ($date === null) {
+            return null;
+        }
+
         return \DateTimeImmutable::createFromFormat(self::EXPIRES_AT_DATE_FORMAT, $date);
     }
 }

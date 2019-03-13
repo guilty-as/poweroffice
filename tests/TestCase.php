@@ -3,7 +3,6 @@
 
 namespace Guilty\Poweroffice\Tests;
 
-
 use Guilty\Poweroffice\Services\PowerofficeService;
 use Guilty\Poweroffice\Sessions\ArraySession;
 use GuzzleHttp\Client;

@@ -3,18 +3,28 @@
 
 namespace Guilty\Poweroffice\Tests\Sessions;
 
-use Guilty\Poweroffice\Sessions\ArraySession;
 use Guilty\Poweroffice\Sessions\SessionInterface;
+use Guilty\Poweroffice\Sessions\ValueStoreSession;
 use Guilty\Poweroffice\Tests\TestCase;
+use Spatie\Valuestore\Valuestore;
 
 class ArraySessionTest extends TestCase
 {
+    protected function getFreshTestValueStoreSession()
+    {
+        $path = "../../build/poweroffice.json";
 
+        if (file_exists($path)) {
+            unlink($path);
+        }
+
+        return new ValueStoreSession(Valuestore::make($path));
+    }
 
     /** @test */
     public function by_default_the_session_is_not_valid()
     {
-        $session = new ArraySession();
+        $session = $this->getFreshTestValueStoreSession();
 
         $this->assertFalse($session->isValid());
     }
@@ -29,7 +39,8 @@ class ArraySessionTest extends TestCase
             "refresh_token" => "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
         ];
 
-        $session = new ArraySession();
+        $session = $this->getFreshTestValueStoreSession();
+        ;
         $session->setFromResponse($response);
 
         $this->assertEquals($response["access_token"], $session->getAccessToken());
@@ -43,7 +54,7 @@ class ArraySessionTest extends TestCase
     /** @test */
     public function given_we_have_an_expire_date_that_is_in_the_future_our_session_has_not_expired()
     {
-        $session = new ArraySession();
+        $session = $this->getFreshTestValueStoreSession();
         $session->setFromResponse($this->fakeAccessTokenResponse());
 
         $this->assertFalse($session->hasExpired());
@@ -54,7 +65,7 @@ class ArraySessionTest extends TestCase
     {
         $date = new \DateTime("-10 minutes");
 
-        $session = new ArraySession();
+        $session = $this->getFreshTestValueStoreSession();
         $session->setFromResponse($this->fakeAccessTokenResponse());
         $session->setExpireDate($date);
 
@@ -64,7 +75,7 @@ class ArraySessionTest extends TestCase
     /** @test */
     public function if_we_have_a_refresh_token_we_can_refresh_our_access_token()
     {
-        $session = new ArraySession();
+        $session = $this->getFreshTestValueStoreSession();
         $session->setFromResponse($this->fakeAccessTokenResponse());
 
         $this->assertTrue($session->canRefresh());
@@ -73,7 +84,7 @@ class ArraySessionTest extends TestCase
     /** @test */
     public function disconnecting_the_session_clears_all_data()
     {
-        $session = new ArraySession();
+        $session = $this->getFreshTestValueStoreSession();
         $session->setFromResponse($this->fakeAccessTokenResponse());
 
         $session->disconnect();
@@ -86,7 +97,7 @@ class ArraySessionTest extends TestCase
     /** @test */
     public function a_disconnected_session_is_invalid()
     {
-        $session = new ArraySession();
+        $session = $this->getFreshTestValueStoreSession();
         $session->setFromResponse($this->fakeAccessTokenResponse());
 
         $session->disconnect();
@@ -97,7 +108,7 @@ class ArraySessionTest extends TestCase
     /** @test */
     public function a_disconnected_session_cannot_be_refreshed()
     {
-        $session = new ArraySession();
+        $session = $this->getFreshTestValueStoreSession();
         $session->setFromResponse($this->fakeAccessTokenResponse());
 
         $session->disconnect();
@@ -108,7 +119,7 @@ class ArraySessionTest extends TestCase
     /** @test */
     public function sanity_check_for_getters_and_setters()
     {
-        $session = new ArraySession();
+        $session = $this->getFreshTestValueStoreSession();
         $session->setAccessToken("ACCESS");
         $session->setRefreshToken("REFRESH");
         $session->setExpireDate($date = new \DateTime("+10 minutes"));

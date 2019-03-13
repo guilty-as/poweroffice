@@ -3,7 +3,6 @@
 
 namespace Guilty\Poweroffice\Tests\Services;
 
-
 use Guilty\Poweroffice\Exceptions\InvalidClientException;
 use Guilty\Poweroffice\Services\PowerofficeService;
 use Guilty\Poweroffice\Sessions\ArraySession;
