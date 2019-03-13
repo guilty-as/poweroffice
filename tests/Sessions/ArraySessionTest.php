@@ -5,18 +5,12 @@ namespace Guilty\Poweroffice\Tests\Sessions;
 
 use Guilty\Poweroffice\Sessions\ArraySession;
 use Guilty\Poweroffice\Sessions\SessionInterface;
-use PHPUnit\Framework\TestCase;
+use Guilty\Poweroffice\Tests\TestCase;
+
 
 class ArraySessionTest extends TestCase
 {
-    public function fakeAccessTokenResponse()
-    {
-        return [
-            "expires_in" => 600, // 10 Minutes defined in seconds
-            "access_token" => "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
-            "refresh_token" => "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
-        ];
-    }
+
 
     /** @test */
     public function by_default_the_session_is_not_valid()

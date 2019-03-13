@@ -5,7 +5,7 @@ namespace Guilty\Poweroffice\Services;
 use Guilty\Poweroffice\Exceptions\InvalidClientException;
 use Guilty\Poweroffice\Exceptions\TooManyRequestsException;
 use Guilty\Poweroffice\Exceptions\UnauthorizedException;
-use Guilty\Poweroffice\Interfaces\SessionInterface;
+use Guilty\Poweroffice\Sessions\SessionInterface;
 use GuzzleHttp\Client;
 
 class PowerofficeService
@@ -16,7 +16,7 @@ class PowerofficeService
     protected $client;
 
     /**
-     * @var \Guilty\Poweroffice\Interfaces\SessionInterface
+     * @var \Guilty\Poweroffice\Sessions\SessionInterface
      */
     protected $session;
 
@@ -31,7 +31,6 @@ class PowerofficeService
 
     /**
      * @param \GuzzleHttp\Client $client
-     * @param \Guilty\Poweroffice\Interfaces\SessionInterface $session
      * @param string $applicationKey The application key
      * @param string $clientKey The client key
      * @param bool $testMode Should the service hit the test api or the live api, defaults to test mode (true)

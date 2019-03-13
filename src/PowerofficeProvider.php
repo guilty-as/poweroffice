@@ -2,8 +2,8 @@
 
 namespace Guilty\Poweroffice;
 
-use Guilty\Poweroffice\Interfaces\SessionInterface;
 use Guilty\Poweroffice\Services\PowerofficeService;
+use Guilty\Poweroffice\Sessions\SessionInterface;
 use Guilty\Poweroffice\Sessions\ValueStoreSession;
 use GuzzleHttp\Client;
 use Illuminate\Support\ServiceProvider;
