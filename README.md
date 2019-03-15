@@ -149,9 +149,9 @@ The following services are implemented in the API client wrapper:
 
 ## Sessions
 
-- [x] TestSession (testing)
-- [x] ValueStoreSession (laravel)
-- [x] RedisSession
+- [x] ArraySession (testing)
+- [x] ValueStoreSession (production)
+- [x] RedisSession (production)
 
 ## Functionality
 
