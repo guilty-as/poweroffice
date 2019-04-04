@@ -732,12 +732,12 @@ class PowerofficeService
     //--------------------------------------------------------------------------------------------------
     public function getSubledgerNumberSeries($params = [])
     {
-        return $this->performRequest("delete", "/SubledgerNumberSeries", $params);
+        return $this->performRequest("get", "/SubledgerNumberSeries", $params);
     }
 
     public function getSubledgerNumberSerie($id)
     {
-        return $this->performRequest("delete", "/SubledgerNumberSeries/{$id}");
+        return $this->performRequest("get", "/SubledgerNumberSeries/{$id}");
     }
 
 
