@@ -1,7 +1,6 @@
 {
     "name": "guilty/poweroffice",
     "description": "PowerOffice PHP API Client",
-    "version": "1.0.0-dev",
     "keywords": [
         "guilty",
         "poweroffice",
