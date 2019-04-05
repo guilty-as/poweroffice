@@ -138,6 +138,102 @@ class ExcelSpreadsheetSession extends AbstractSession
 }
 ```
 
+## Using the service class
+
+You can use the ```performRequest()``` method directly if you just want to use this package as a thin wrapper for Guzzle that handles the oAuth session storage and maintenance, here is an example:
+
+```php
+<?php
+ 
+require "./vendor/autoload.php";
+
+
+use Guilty\Poweroffice\Services\PowerofficeService;
+use GuzzleHttp\Client;
+use Guilty\Poweroffice\Sessions\ArraySession;
+
+$service = new PowerOfficeService(
+    new Client(),
+    new ArraySession(), 
+    "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa", // Application Key
+    "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb", // Client Key 
+    true // Test Mode
+);
+
+$customer = $service->performRequest("post", "/Customer", [
+    "json" => [
+        "firstName" => "John",
+        "lastName" => "Smith",
+        "emailAddress" => "johnsmith@example.com",
+        "invoiceEmailAddress" => "johnsmith@example.com",
+        "isArchived" => false,
+        "isPerson" => true,
+        "invoiceDeliveryType" => 1, // PDF By Email
+        "since" => (new DateTimeImmutable())->format("Y-m-d"),
+        "mailAddress" => $address = [
+            "address1" => "123 Fakestreet",
+            "city" => "Lazytown",
+            "zipCode" => "1234",
+            "countryCode" => "NO", // ISO Country Code (norway)
+            "isPrimary" => true,
+        ],
+        "streetAddresses" => [$address], // Must be an array
+    ]
+]);
+
+// All responses will include a success key, that can be used for error handling
+if ($response["success"] === false) {
+    throw new Exception("Customer could not be created");
+}
+```  
+
+Or you can use the methods provided, that will prefill the method and path for you, as well as make it easier to provide certain data (like start and end dates).
+
+```php
+<?php
+ 
+require "./vendor/autoload.php";
+
+
+use Guilty\Poweroffice\Services\PowerofficeService;
+use GuzzleHttp\Client;
+use Guilty\Poweroffice\Sessions\ArraySession;
+
+$service = new PowerOfficeService(
+    new Client(),
+    new ArraySession(),
+    "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa", // Application Key
+    "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb", // Client Key 
+    true // Test Mode
+);
+
+$customer = $service->createCustomer([
+    "json" => [
+        "firstName" => "John",
+        "lastName" => "Smith",
+        "emailAddress" => "johnsmith@example.com",
+        "invoiceEmailAddress" => "johnsmith@example.com",
+        "isArchived" => false,
+        "isPerson" => true,
+        "invoiceDeliveryType" => 1, // PDF By Email
+        "since" => (new DateTimeImmutable())->format("Y-m-d"),
+        "mailAddress" => $address = [
+            "address1" => "123 Fakestreet",
+            "city" => "Lazytown",
+            "zipCode" => "1234",
+            "countryCode" => "NO", // ISO Country Code (norway)
+            "isPrimary" => true,
+        ],
+        "streetAddresses" => [$address], // Must be an array
+    ]
+]);
+
+// All responses will include a success key, that can be used for error handling
+if ($response["success"] === false) {
+    throw new Exception("Customer could not be created");
+}
+```  
+
 # Note about oData filtering
 
 It seems that PowerOffice's API is case sensitive when it comes to the field names in oData filtering. 
